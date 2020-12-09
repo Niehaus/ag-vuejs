@@ -1,0 +1,47 @@
+:root {
+  --font-family: "Lucida Console", serif;
+  --background-color: #222225;
+  --font-color: #e8e9ed;
+  --invert-font-color: #222225;
+  scrollbar-face-color: rgb(210,210,210); /* Firefox 63 compatibility */
+  scrollbar-track-color: rgb(46,54,69); /* Firefox 63 compatibility */
+  scrollbar-color: rgb(210, 210, 210) rgb(34, 34, 37);
+  scrollbar-width: thin;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+#app {
+  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  /*margin-top: 60px;*/
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px 5px;
+  grid-template-areas:
+    ". instructions instructions ."
+    "population ag-actions ag-actions mid-population"
+    "selected-parents ag-actions ag-actions console-log";
+  font-family: "Lucida Console", serif;
+}
+
+.instructions { grid-area: instructions; }
+
+.ag-actions { grid-area: ag-actions; }
+
+.population { grid-area: population; }
+
+.selected-parents { grid-area: selected-parents; }
+
+.mid-population { grid-area: mid-population; }
+
+.console-log { grid-area: console-log; }
