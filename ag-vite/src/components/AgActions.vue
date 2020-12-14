@@ -16,5 +16,5 @@ name: "AgActions"
 
 .panel
   &.ag-actions
-    height: 512px
+    height: 512px !important
 </style>

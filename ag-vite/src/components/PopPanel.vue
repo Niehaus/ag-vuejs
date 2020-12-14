@@ -2,7 +2,7 @@
 <div class="panel">
 <div class="title">População</div>
   <hr class="panel-header">
-  <div class="pop-rep">
+  <div class="text-box">
     <div class="indiv" v-for="indiv in population">
       {{indiv}}
     </div>
@@ -29,10 +29,5 @@ export default {
   display: inline-block
   margin: 3px
   font-size: 13px
-
-.pop-rep
-  height: 250px
-  overflow: auto
-
 
 </style>

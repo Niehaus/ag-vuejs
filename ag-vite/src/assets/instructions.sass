@@ -1,0 +1,57 @@
+
+@import "src/variables.sass"
+
+.parametros
+  border-color: $error-color
+  color: $error-color
+  text-align: center
+
+  label
+    display: inline-block
+    width: 220px
+    text-align: left
+
+  input
+    border-color: $error-color
+  input[type=number]
+    -moz-appearance: textfield
+    padding-left: 5px
+
+  &.show
+    border-color: $primary-color
+    color: $primary-color
+    min-height: 203px
+
+    label
+      width: 210px
+    input
+      border-color: $primary-color
+
+  button
+    border-color: $error-color
+    color: $error-color
+
+  button:hover
+    background-color: $error-color
+    color: $invert-font-color
+
+.instructions
+  //min-height: 390px
+  //padding: 0 25px 10px
+  border: 1px solid $font-color
+
+  .text
+    min-height: 160px
+  p
+    text-align: justify !important
+
+.col-text, .col-param
+  display: flex
+  width: 50%
+  margin: 5px 15px
+  justify-content: center
+
+  .block
+    margin: 15px
+  fieldset
+    padding: 0

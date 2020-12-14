@@ -1,24 +1,26 @@
 <template>
-  <div class="grid-container">
-    <div class="instructions">
-      <Instructions></Instructions>
+
+    <div class="grid-container">
+      <div class="instructions" >
+        <instructions ></instructions>
+      </div>
+      <div class="ag-actions">
+        <AgActions></AgActions>
+      </div>
+      <div class="population">
+        <PopPanel></PopPanel>
+      </div>
+      <div class="selected-parents">
+        <SelectedParents></SelectedParents>
+      </div>
+      <div class="mid-population">
+        <MidPop></MidPop>
+      </div>
+      <div class="console-log">
+        <console-log></console-log>
+      </div>
     </div>
-    <div class="ag-actions">
-      <AgActions></AgActions>
-    </div>
-    <div class="population">
-      <PopPanel></PopPanel>
-    </div>
-    <div class="selected-parents">
-      <SelectedParents></SelectedParents>
-    </div>
-    <div class="mid-population">
-      <MidPop></MidPop>
-    </div>
-    <div class="console-log">
-      <ConsoleLog></ConsoleLog>
-    </div>
-  </div>
+
 </template>
 
 <script>

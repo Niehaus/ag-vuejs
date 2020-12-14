@@ -4,12 +4,23 @@ $font-color: #e8e9ed
 $invert-font-color: #222225
 $general-font: "Lucida Console", serif
 $global-font-size: 15px
+$error-color: #ff3c74
+$succes-color: rgb(8, 209, 14)
 
 body
-  background-color: $background-color
-  font-family: $general-font
-  color: $font-color
+  background-color: $background-color !important
+  font-family: $general-font !important
+  color: $font-color !important
 
+.row
+  display: flex
+  margin-bottom: 50px
+
+.text-box
+  //height: 260px
+  height: 200px
+  overflow: auto
+  
 .panel
   border: 3px solid $font-color
   border-radius: 0.5rem
@@ -23,3 +34,26 @@ body
 
   .panel-header
     color: $font-color
+button
+  background-color: $background-color
+  color: $primary-color
+  font-family: $general-font
+  border: 1px solid $primary-color
+  padding: 8px
+  cursor: pointer
+  margin: 8px 0
+
+button:hover
+  background-color: $primary-color
+  color: $invert-font-color
+
+input
+  border: 2px solid $primary-color
+  background-color: $background-color
+  color: $font-color
+  font-family: $general-font
+  height: 20px
+
+span
+  color: $primary-color
+  //font-weight: bold
