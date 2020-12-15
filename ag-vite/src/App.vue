@@ -16,7 +16,7 @@
       <div class="mid-population">
         <MidPop></MidPop>
       </div>
-      <div class="console-log">
+      <div id="ag-console" class="console-log">
         <console-log></console-log>
       </div>
     </div>
@@ -42,10 +42,19 @@ export default {
     SelectedParents,
     Instructions,
     ConsoleLog
+  },
+  methods: {
+    scrollToAnchor(anchor) {
+      $('html, body').animate({
+        scrollTop: $(anchor).offset().top
+      }, 1000);
+    }
+  },
+  mounted() {
+    this.emitter.on("scroll-to-anchor", this.scrollToAnchor)
   }
 }
 </script>
 
 <style lang="sass">
-  @import "variables"
 </style>

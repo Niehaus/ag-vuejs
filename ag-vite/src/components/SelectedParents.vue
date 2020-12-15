@@ -12,8 +12,5 @@ name: "SelectedParents"
 </script>
 
 <style lang="sass">
-@import "src/variables.sass"
-
-
 
 </style>

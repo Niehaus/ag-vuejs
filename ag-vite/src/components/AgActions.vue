@@ -12,9 +12,7 @@ name: "AgActions"
 </script>
 
 <style lang="sass">
-@import "src/variables.sass"
-
 .panel
   &.ag-actions
-    height: 512px !important
+    height: 512px
 </style>

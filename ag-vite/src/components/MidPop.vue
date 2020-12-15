@@ -13,5 +13,4 @@ name: "MidPop"
 
 <style lang="sass">
 
-@import "src/variables.sass"
 </style>

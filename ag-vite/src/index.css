@@ -15,45 +15,33 @@ body {
 }
 
 #app {
-  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /*margin-top: 60px;*/
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 0.5fr 0.5fr;
-  gap: 5px 5px;
-  grid-template-areas:
-    "instructions instructions instructions instructions"
-    "population ag-actions ag-actions mid-population"
-    "selected-parents ag-actions ag-actions console-log";
-  font-family: "Lucida Console", serif;
+@media screen and (min-width: 768px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    gap: 5px 5px;
+    grid-template-areas:
+  "instructions instructions instructions instructions"
+  "population ag-actions ag-actions mid-population"
+  "selected-parents ag-actions ag-actions console-log";
+    font-family: "Lucida Console", serif;
+  }
+
+  .instructions { grid-area: instructions; }
+
+  .ag-actions { grid-area: ag-actions; }
+
+  .population { grid-area: population; }
+
+  .selected-parents { grid-area: selected-parents; }
+
+  .mid-population { grid-area: mid-population; }
+
+  .console-log { grid-area: console-log; }
 }
-
-.instructions { grid-area: instructions; }
-
-.ag-actions { grid-area: ag-actions; }
-
-.population { grid-area: population; }
-
-.selected-parents { grid-area: selected-parents; }
-
-.mid-population { grid-area: mid-population; }
-
-.console-log { grid-area: console-log; }
-
-/*Breakpoints*/
-/*@media (min-width: 990px) {*/
-/*  .pop-rep {*/
-/*    height: 260px;*/
-/*  }*/
-
-/*  .panel {*/
-/*    height: 250px;*/
-/*  }*/
-
-/*}*/

@@ -2,7 +2,7 @@
     <fieldset class="console">
       <legend>Logs</legend>
       <div class="text-box">
-        <p v-for="log in logs"> > {{ log }} </p>
+        <p v-for="(log, index) in logs"> <span :class="log.class"> > </span> {{ log.message }} </p>
       </div>
     </fieldset>
 </template>
@@ -12,11 +12,12 @@ export default {
   name: "ConsoleLog",
   data() {
     return {
-      logs: []
+      logs: [],
+      bindClass: false
     }
   },
   methods: {
-    display(logMessage) {
+    display: function (logMessage) {
       this.logs.push(logMessage)
     }
   },

@@ -23,8 +23,6 @@ export default {
 
 <style lang="sass">
 
-@import "src/variables"
-
 .indiv
   display: inline-block
   margin: 3px

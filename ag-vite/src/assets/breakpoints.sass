@@ -1,0 +1,59 @@
+$break-small: 576px
+$break-medium: 768px
+$break-large: 992px
+$break-extra-large: 1200px
+
+//// Small devices (landscape phones, 576px and up)
+@media screen and (min-width: $break-small)
+
+//// Medium devices (tablets, 768px and up)
+@media screen and (min-width: $break-medium)
+
+//// Large devices (desktops, 992px and up)
+@media screen and (min-width: $break-large)
+
+//// Extra large devices (large desktops, 1200px and up)
+@media screen and (min-width: $break-extra-large)
+  .col-param, .col-text
+    width: 50%
+
+//
+////// Extra large devices (large desktops, 1200px and down)
+//@media screen and (max-width: $break-extra-large)
+//
+////// Large devices (desktops, 992px and down)
+@media screen and (max-width: $break-large)
+  .instructions
+    .row
+      flex-direction: column
+
+////// Medium devices (tablets, 768px and down)
+@media screen and (max-width: $break-medium)
+  .instructions, .ag-actions, .population,
+  .selected-parents, .mid-population, .console-log
+    margin: 5px 0
+
+  .panel
+    min-height: 200px
+    &.ag-actions
+      height: 250px !important
+//
+////// Small devices (landscape phones, 576px and down)
+@media screen and (max-width: $break-small)
+  .instructions
+    .row
+      align-items: center
+  .col-param
+    flex-direction: column
+    max-width: 264px
+
+  .parametros
+    label
+      text-align: center
+      margin-bottom: 5px
+
+
+
+
+
+

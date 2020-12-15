@@ -11,10 +11,11 @@ body
   background-color: $background-color !important
   font-family: $general-font !important
   color: $font-color !important
+  font-size: $global-font-size
 
 .row
   display: flex
-  margin-bottom: 50px
+  //margin-bottom: 50px
 
 .text-box
   //height: 260px
@@ -24,7 +25,7 @@ body
 .panel
   border: 3px solid $font-color
   border-radius: 0.5rem
-  height: 250px
+  min-height: 250px
   overflow: hidden
 
   .title
@@ -34,6 +35,11 @@ body
 
   .panel-header
     color: $font-color
+.valid
+  color: $succes-color
+.invalid
+  color: $error-color
+
 button
   background-color: $background-color
   color: $primary-color
