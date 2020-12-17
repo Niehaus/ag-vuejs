@@ -1,5 +1,5 @@
 <template>
-<div class="panel ag-actions">
+<div class="panel deactivated ag-actions">
   <div class="title">ag-actions</div>
   <hr class="panel-header">
 </div>

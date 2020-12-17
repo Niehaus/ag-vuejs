@@ -9,7 +9,7 @@
             natural e na genética natural, inspirado na teoria da evolução apresentado por
             Charlin Darwin.</p>
           <p>Este Projeto tem como objetivo realizar uma pequena demonstração do funcionamento
-            de um AG simples com representação binária de tamanho 6.</p>
+            de um PackgeAG simples com representação binária de tamanho 6.</p>
           <p>Função Objetivo a ser <span>minimizada</span>:
           <br>
             [Função obj aqui]
@@ -55,7 +55,7 @@
       </div>
     </div>
 
-    <button class="btn" @click="beginAG">Iniciar AG</button>
+    <button class="btn" @click="beginAG">Iniciar PackgeAG</button>
   </fieldset>
 </div>
 </template>
@@ -113,6 +113,7 @@ export default {
       }
 
       emit_e.emit('scroll-to-anchor', '#ag-console')
+      emit_e.emit('active-panel', '#panel-pop')
     }
   }
 }

@@ -1,7 +1,7 @@
 import {createApp} from 'vue'
 import App from './App.vue'
 import './index.css'
-import './variables.sass'
+import './main.sass'
 import './assets/breakpoints.sass'
 import jquery from "jquery";
 import mitt from 'mitt';

@@ -1,5 +1,5 @@
 <template>
-<div class="panel">
+<div class="panel deactivated">
   <div class="title">selected p</div>
   <hr class="panel-header">
 </div>

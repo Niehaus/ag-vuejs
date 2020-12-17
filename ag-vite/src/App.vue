@@ -48,10 +48,15 @@ export default {
       $('html, body').animate({
         scrollTop: $(anchor).offset().top
       }, 1000);
+    },
+    togglePanelClass(whichPanel) {
+      $(whichPanel).toggleClass('deactivated')
     }
   },
   mounted() {
     this.emitter.on("scroll-to-anchor", this.scrollToAnchor)
+
+    this.emitter.on("active-panel", this.togglePanelClass)
   }
 }
 </script>

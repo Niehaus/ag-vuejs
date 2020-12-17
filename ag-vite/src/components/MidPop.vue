@@ -1,5 +1,5 @@
 <template>
-<div class="panel">
+<div class="panel deactivated">
   <div class="title">mid-pop</div>
   <hr class="panel-header">
 </div>

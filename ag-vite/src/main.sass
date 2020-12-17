@@ -1,11 +1,4 @@
-$primary-color: #62c4ff
-$background-color: #222225
-$font-color: #e8e9ed
-$invert-font-color: #222225
-$general-font: "Lucida Console", serif
-$global-font-size: 15px
-$error-color: #ff3c74
-$succes-color: rgb(8, 209, 14)
+@import 'src/assets/color-variables.sass'
 
 body
   background-color: $background-color !important
@@ -17,11 +10,16 @@ body
   display: flex
   //margin-bottom: 50px
 
-.text-box
+.text-box, .pop-box
   //height: 260px
   height: 200px
   overflow: auto
-  
+
+.panel.deactivated
+  border-color: $deactivated-color
+  color: $deactivated-color
+  .panel-header
+    color: $deactivated-color
 .panel
   border: 3px solid $font-color
   border-radius: 0.5rem
@@ -39,6 +37,30 @@ body
   color: $succes-color
 .invalid
   color: $error-color
+
+
+.tooltip
+  //position: relative
+  display: inline-block
+  //border-bottom: 1px dotted black
+  .tooltiptext
+    visibility: hidden
+    width: 120px
+    background-color: black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 100%
+    left: 50%
+    margin-left: -60px
+  &:hover
+    .tooltiptext
+      visibility: visible
+
+
 
 button
   background-color: $background-color
@@ -63,3 +85,4 @@ input
 span
   color: $primary-color
   //font-weight: bold
+
