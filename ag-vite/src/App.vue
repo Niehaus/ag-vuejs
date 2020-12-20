@@ -49,14 +49,22 @@ export default {
         scrollTop: $(anchor).offset().top
       }, 1000);
     },
-    togglePanelClass(whichPanel) {
-      $(whichPanel).toggleClass('deactivated')
+    activePanel(whichPanel) {
+      $(whichPanel).removeClass('deactivated')
+    },
+    deactivatePanel(whichPanel) {
+      $(whichPanel).addClass('deactivated')
+    },
+    registerListeners() {
+      this.emitter.on("scroll-to-anchor", this.scrollToAnchor)
+
+      this.emitter.on("active-panel", this.activePanel)
+
+      this.emitter.on("deactivate-panel", this.deactivatePanel)
     }
   },
   mounted() {
-    this.emitter.on("scroll-to-anchor", this.scrollToAnchor)
-
-    this.emitter.on("active-panel", this.togglePanelClass)
+    this.registerListeners()
   }
 }
 </script>

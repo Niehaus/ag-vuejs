@@ -7,7 +7,7 @@
 
 <script>
 export default {
-name: "MidPop"
+  name: "MidPop",
 }
 </script>
 

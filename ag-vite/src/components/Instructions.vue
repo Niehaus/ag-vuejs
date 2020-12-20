@@ -100,20 +100,34 @@ export default {
       this.validForm = validCount === 3;
     },
     beginAG() {
-      let log, emit_e = this.emitter
+      let log, ppop_info, emit_e = this.emitter
 
       if (this.validForm){
         log = { message: 'Iniciando Ag', class: 'valid' }
         emit_e.emit('display-logs', log)
 
+        ppop_info = {
+          message: "",
+          permission: true,
+          tx_mut: this.tx_mut,
+          tx_cruz: this.tx_cruz,
+          tam_pop: this.tam_pop,
+          gen: 1
+        }
+        emit_e.emit('enable-ppop', ppop_info)
+
+        emit_e.emit('active-panel', '#panel-pop')
         this.validForm = !this.validForm
       }else {
         log = {message: 'Valide os Parâmetros Antes de Iniciar!',class: 'invalid'}
         emit_e.emit('display-logs', log)
+
+        ppop_info = {message: "Parâmetros Inválidos", permission: false}
+        emit_e.emit('enable-ppop', ppop_info)
       }
 
       emit_e.emit('scroll-to-anchor', '#ag-console')
-      emit_e.emit('active-panel', '#panel-pop')
+
     }
   }
 }

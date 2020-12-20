@@ -14,5 +14,5 @@ name: "AgActions"
 <style lang="sass">
 .panel
   &.ag-actions
-    height: 512px
+    height: 572px
 </style>
