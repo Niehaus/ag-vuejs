@@ -31,6 +31,7 @@ import MidPop from "./components/MidPop.vue";
 import SelectedParents from "./components/SelectedParents.vue";
 import Instructions from "./components/Instructions.vue";
 import ConsoleLog from "./components/ConsoleLog.vue";
+import Tournament from "./components/Tournament.vue";
 
 export default {
   name: 'App',
@@ -38,6 +39,7 @@ export default {
     HelloWorld,
     PopPanel,
     AgActions,
+    Tournament,
     MidPop,
     SelectedParents,
     Instructions,
@@ -64,10 +66,8 @@ export default {
     }
   },
   mounted() {
+    // Draggable.create("fieldset");
     this.registerListeners()
   }
 }
 </script>
-
-<style lang="sass">
-</style>

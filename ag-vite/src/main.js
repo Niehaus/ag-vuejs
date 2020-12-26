@@ -7,14 +7,19 @@ import jquery from "jquery";
 import mitt from 'mitt';
 import Instructions from './components/Instructions.vue';
 import ConsoleLog from "./components/ConsoleLog.vue";
+import '@fortawesome/fontawesome-free/css/all.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { Draggable } from 'gsap/Draggable';
+import { gsap } from "gsap";
+import Tournament from "./components/Tournament.vue";
 
-
-
+gsap.registerPlugin(Draggable);
+gsap.install(window)
 window.$ = window.jQuery = jquery;
 const emitter = mitt();
+
 let app = createApp(App)
 
 app.config.productionTip = false
@@ -27,4 +32,4 @@ library.add(faArrowUp)
 app.component('icon', FontAwesomeIcon)
 app.component('instructions', Instructions)
 app.component('console-log', ConsoleLog)
-
+app.component('tournament', Tournament)

@@ -3,15 +3,13 @@
   <div class="title">selected p</div>
   <hr class="panel-header">
 
-  <div v-if="this.canStart" id="btn-gen-pop">
-    <button @click="this.tournament(this.population)">Torneio</button>
-  </div>
-  <div v-else class="pop-box">
+  <div  class="pop-box">
     <div class="indiv " v-for="indiv in selectedParents">
       <div class="tooltip">
         {{indiv.rep_bin}}
         <span class="tooltiptext">
-          {{'idv: ' + indiv.id + ' ' + 'gen:' + indiv.gen}}
+          {{'idv: ' + indiv.id + ' ' + 'gen:' + indiv.gen
+          + '\nFit: ' + indiv.fitness.toFixed(2)}}
         </span>
       </div>
     </div>
@@ -45,10 +43,11 @@ export default {
 
     },
     collectDetails(details) {
-      this.population = details.population
+      this.selectedParents.push(details.selected)
       this.canStart = details.permission
 
       $('#selected-pop').removeClass('deactivated')
+
       // this.emitter.emit('active-panel', '#selected-pop')
     },
     registerListeners() {

@@ -3,11 +3,11 @@
 <div class="title">População</div>
   <hr class="panel-header">
   <div v-if="!this.hiddenPopPanel" class="pop-box">
-    <div class="indiv " v-for="indiv in population">
+    <div class="indiv " v-for="indiv in population" @click="selectMe(indiv.id)">
       <div class="tooltip">
           {{indiv.rep_bin}}
         <span class="tooltiptext">
-          {{'idv: ' + indiv.id + ' ' + 'gen:' + indiv.gen}}
+          {{'Id: ' + indiv.id + ' ' + 'Gen: ' + indiv.gen + '\nFit: ' + indiv.fitness.toFixed(2)}}
         </span>
       </div>
     </div>
@@ -44,14 +44,14 @@ export default {
       let isActive = $("#panel-pop").attr('class')
 
       this.population =  packgeAG.initPop(details)
-      // TODO: Decide and calculate the f(x)
-      this.hiddenPopPanel = isActive.includes('deactivated')
+      packgeAG.f(this.population[0].rep_bin)
+      this.population.forEach(indv => {
+        indv.fitness = packgeAG.f(indv.rep_bin)
+      });
 
-      let popDetails = {
-        population: this.population,
-        permission: true
-      }
-      this.emitter.emit('enable-selectp', popDetails)
+      this.hiddenPopPanel = isActive.includes('deactivated')
+      this.emitter.emit("active-panel", '#ag-actions')
+      this.emitter.emit("enable-tournament")
     },
     collectInstructions(instructions) {
       this.canStart = instructions.permission
@@ -61,6 +61,9 @@ export default {
         pop_size: instructions.tam_pop,
         gen: instructions.gen
       }
+    },
+    selectMe(p_id) {
+      this.emitter.emit('register-parent', this.population[p_id])
     },
     registerListeners() {
       this.emitter.on("enable-ppop", this.collectInstructions)
