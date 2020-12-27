@@ -138,9 +138,6 @@ export default {
 @import "../main"
 
 .tournament-box
-  //margin: 30px 0
-  border: 1px solid blueviolet
-
   .row
     justify-content: center
     margin: 10px 0

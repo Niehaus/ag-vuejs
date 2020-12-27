@@ -41,4 +41,10 @@ export default {
 .panel
   &.ag-actions
     height: 572px
+
+  .actions-area
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 90%
 </style>
