@@ -3,7 +3,10 @@
   <div class="title">ag-actions</div>
   <hr class="panel-header">
   <div class="actions-area">
-    <tournament v-if="tournamentTime"></tournament>
+    <tournament :pop_size="this.agDetails.pop_size"
+                :gen="this.agDetails.gen"
+                v-if="tournamentTime">
+    </tournament>
   </div>
 
 
@@ -20,12 +23,14 @@ export default {
     return {
       tournamentTime: false,
       crossoverTime: false,
+      agDetails: {}
     }
   },
   methods: {
-    enableTournament() {
+    enableTournament(agDetails) {
       this.tournamentTime = true
-      console.log(this.tournamentTime)
+      this.agDetails = agDetails
+      console.log(this.agDetails)
     },
     registerListeners() {
       this.emitter.on("enable-tournament", this.enableTournament)

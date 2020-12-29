@@ -47,10 +47,10 @@
         </div>
       </fieldset>
 
-      <div class="row">
+      <div class="row" style="align-items: center" >
         <button class="btn-tournament" @click="twoTournament">Realizar Torneio</button>
-
         <button class="btn-tournament new-t" @click="clearAll">Novo Torneio</button>
+        <span>{{ this.tournamentCounter + '/' + (this.pop_size - 1) }}</span>
       </div>
     </div>
   </div>
@@ -62,12 +62,17 @@ import packageAG from "../ag_code/packageAG";
 
 export default {
   name: "Tournament",
+  props: {
+    pop_size: 0,
+    gen: 0
+  },
   data() {
     return {
       f_parent: null,
       s_parent: null,
       winner: null,
       replaceCount: 0,
+      tournamentCounter: 0,
     }
   },
   methods: {
@@ -116,7 +121,7 @@ export default {
         }
         this.emitter.emit("enable-selectp", details)
       }
-
+      this.tournamentCounter++
       this.emitter.emit('display-logs', log)
     },
     clearAll() {

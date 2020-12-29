@@ -3,7 +3,7 @@
 <div class="title">População</div>
   <hr class="panel-header">
   <div v-if="!this.hiddenPopPanel" class="pop-box">
-    <div class="indiv " v-for="indiv in population" @click="selectMe(indiv.id)">
+    <div class="indiv " v-for="indiv in population" @click="selectMe($event, indiv.id)">
       <div class="tooltip">
           {{indiv.rep_bin}}
         <span class="tooltiptext">
@@ -51,7 +51,7 @@ export default {
 
       this.hiddenPopPanel = isActive.includes('deactivated')
       this.emitter.emit("active-panel", '#ag-actions')
-      this.emitter.emit("enable-tournament")
+      this.emitter.emit("enable-tournament", details)
     },
     collectInstructions(instructions) {
       this.canStart = instructions.permission
@@ -62,8 +62,12 @@ export default {
         gen: instructions.gen
       }
     },
-    selectMe(p_id) {
+    selectMe(event, p_id) {
+      // TODO: Mark only the current selected parents
       this.emitter.emit('register-parent', this.population[p_id])
+      // console.log('put class', event.currentTarget)
+      // console.log(event.target.innerText)
+      // $(event.currentTarget).addClass('valid')
     },
     registerListeners() {
       this.emitter.on("enable-ppop", this.collectInstructions)
@@ -83,7 +87,7 @@ export default {
 .pop-box
   height: 170px !important
   padding-top: 30px
-  margin-bottom: 30px
+  //margin: 30px 0
 
 .indiv
   display: inline-block
