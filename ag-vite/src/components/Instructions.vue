@@ -10,7 +10,7 @@
             Charlin Darwin.</p>
           <p>Este Projeto tem como objetivo realizar uma pequena demonstração do funcionamento
             de um PackgeAG simples com representação binária de tamanho 6.</p>
-          <p>Clique <span>aqui</span> para mais detalhes as etapas de um Algoritmo Genético:</p>
+          <p>Clique <span @click="showAlert">aqui</span> para mais detalhes as etapas de um Algoritmo Genético:</p>
         </div>
       </div>
 
@@ -52,6 +52,7 @@
     </div>
       <button v-if="!agIniciado" class="btn" @click="beginAG">Iniciar AG</button>
       <button v-else class="btn" @click="beginAG">Reiniciar AG</button>
+
   </fieldset>
 </div>
 </template>
@@ -70,6 +71,16 @@ export default {
     }
   },
   methods: {
+    showAlert() {
+      this.$swal({
+        title: '<strong><u>Modal Example</u></strong>',
+        // icon: 'info',
+        html:
+            '<button>Botão de Teste</button>',
+        showCloseButton: true,
+        showConfirmButton: false
+      });
+    },
     getFormValues(value) {
       if (value === "") {
         return 'NaN'

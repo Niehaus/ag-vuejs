@@ -14,6 +14,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { Draggable } from 'gsap/Draggable';
 import { gsap } from "gsap";
 import Tournament from "./components/Tournament.vue";
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 gsap.registerPlugin(Draggable);
 gsap.install(window)
@@ -24,6 +26,13 @@ let app = createApp(App)
 
 app.config.productionTip = false
 app.config.globalProperties.emitter = emitter
+
+const options = {
+    confirmButtonColor: '#41b882',
+    cancelButtonColor: '#ff7674',
+};
+
+app.use(VueSweetalert2, options);
 app.mount('#app')
 
 library.add(faUserSecret)
