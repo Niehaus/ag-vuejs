@@ -1,6 +1,6 @@
 <template>
 <div class="panel deactivated">
-  <div class="title">mid-pop</div>
+  <div class="title">População Intermediária</div>
   <hr class="panel-header">
 </div>
 </template>

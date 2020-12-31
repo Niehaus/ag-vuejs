@@ -1,6 +1,6 @@
 <template>
 <div id="selected-pop" class="panel deactivated">
-  <div class="title">selected p</div>
+  <div class="title">Pais Selecionados no Torneio</div>
   <hr class="panel-header">
 
   <div  class="pop-box">

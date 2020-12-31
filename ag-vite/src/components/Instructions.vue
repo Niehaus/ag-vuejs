@@ -10,10 +10,7 @@
             Charlin Darwin.</p>
           <p>Este Projeto tem como objetivo realizar uma pequena demonstração do funcionamento
             de um PackgeAG simples com representação binária de tamanho 6.</p>
-          <p>Função Objetivo a ser <span>minimizada</span>:
-          <br>
-            [Função obj aqui]
-          </p>
+          <p>Clique <span>aqui</span> para mais detalhes as etapas de um Algoritmo Genético:</p>
         </div>
       </div>
 
@@ -37,7 +34,6 @@
             <input type="number" v-model="tx_cruz"/>
           </div>
           <button class="sub-param" v-on:click="validateForms">Validar</button>
-
         </fieldset>
 
         <fieldset class="parametros show">
@@ -54,8 +50,8 @@
         </fieldset>
       </div>
     </div>
-
-    <button class="btn" @click="beginAG">Iniciar PackgeAG</button>
+      <button v-if="!agIniciado" class="btn" @click="beginAG">Iniciar AG</button>
+      <button v-else class="btn" @click="beginAG">Reiniciar AG</button>
   </fieldset>
 </div>
 </template>
@@ -69,7 +65,8 @@ export default {
       tx_mut: 1,
       tx_cruz: 1,
       tam_pop: 25,
-      validForm: false
+      validForm: false,
+      agIniciado: false
     }
   },
   methods: {
@@ -100,6 +97,7 @@ export default {
       this.validForm = validCount === 3;
     },
     beginAG() {
+      //TODO: Implement GA restart
       let log, ppop_info, emit_e = this.emitter
 
       if (this.validForm){
@@ -118,6 +116,7 @@ export default {
 
         emit_e.emit('active-panel', '#panel-pop')
         this.validForm = !this.validForm
+        this.agIniciado = true
       }else {
         log = {message: 'Valide os Parâmetros Antes de Iniciar!',class: 'invalid'}
         emit_e.emit('display-logs', log)
@@ -127,7 +126,6 @@ export default {
       }
 
       emit_e.emit('scroll-to-anchor', '#ag-console')
-
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
 <div id="panel-pop" class="panel deactivated">
-<div class="title">População</div>
+<div class="title">População <i class="fa fa-info-circle" aria-hidden="true" style="cursor: pointer"></i></div>
   <hr class="panel-header">
   <div v-if="!this.hiddenPopPanel" class="pop-box">
     <div class="indiv " v-for="indiv in population" @click="selectMe($event, indiv.id)">
@@ -35,7 +35,9 @@ export default {
       agDetails: {
         pop_size: 0,
         gen: 0
-      }
+      },
+      oldEvent: [],
+      selectedCount: 0
     }
   },
   methods: {
@@ -64,10 +66,23 @@ export default {
     },
     selectMe(event, p_id) {
       // TODO: Mark only the current selected parents
+      let aux_event
+      if ($(event.currentTarget).hasClass('valid')) return
+
+      if (this.selectedCount > 1) {
+        $(event.currentTarget).addClass('valid')
+        $(this.oldEvent[0].target.parentNode).removeClass('valid')
+        aux_event = this.oldEvent[1]
+        this.oldEvent[1] = event
+        this.oldEvent[0] = aux_event
+
+        this.selectedCount = 2
+      }else {
+        $(event.currentTarget).addClass('valid')
+        this.oldEvent[this.selectedCount] = event
+        this.selectedCount++
+      }
       this.emitter.emit('register-parent', this.population[p_id])
-      // console.log('put class', event.currentTarget)
-      // console.log(event.target.innerText)
-      // $(event.currentTarget).addClass('valid')
     },
     registerListeners() {
       this.emitter.on("enable-ppop", this.collectInstructions)

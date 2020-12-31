@@ -1,5 +1,5 @@
 <template>
-  <div class="tournament-box">
+  <div v-if="this.tournamentCounter < 24" class="tournament-box">
     <p>Selecione dois indivíduos no box de <span>População</span> para realizar um torneio!</p>
     <div class="row">
       <fieldset id="f_parent">
@@ -54,7 +54,11 @@
       </div>
     </div>
   </div>
+  <div v-else>
+    <p>Todos os torneios foram realizados com sucesso!</p>
+    <button>Habilitar Cruzamento</button>
 
+  </div>
 </template>
 
 <script>
@@ -86,7 +90,7 @@ export default {
           this.s_parent = parent
           this.replaceCount++
         }
-      } else {
+      }else {
         this.f_parent = parent
         this.replaceCount++
       }
@@ -100,7 +104,7 @@ export default {
 
       if (a === null || b === null) {
         log = {
-          message: 'Selecione no mínimo 2 pais',
+          message: 'Selecione no mínimo 2 pais diferentes',
           class: 'invalid'
         }
       }else if (a.id === b.id) {
@@ -114,14 +118,16 @@ export default {
           class: 'valid'
         }
         this.winner = packageAG.tournament_by_user(a, b)
+        this.tournamentCounter++
 
         details = {
           selected: this.winner,
           permission: true
         }
+
         this.emitter.emit("enable-selectp", details)
       }
-      this.tournamentCounter++
+
       this.emitter.emit('display-logs', log)
     },
     clearAll() {
